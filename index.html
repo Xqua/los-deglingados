@@ -92,6 +92,9 @@
   @keyframes dgl-neon { 0%,100% { opacity:1; filter:drop-shadow(0 0 10px rgba(255,110,199,.7)) } 50% { opacity:.92; filter:drop-shadow(0 0 22px rgba(255,110,199,.95)) } }
   @keyframes dgl-pop { from { transform:scale(.92); opacity:0 } to { transform:scale(1); opacity:1 } }
   @keyframes crt-flicker { 0%,100%{opacity:.96} 8%{opacity:.9} 12%{opacity:.98} 40%{opacity:.94} 70%{opacity:.99} }
+  @keyframes dgl-son-glow { 0%,100%{box-shadow:inset 0 1px 1px rgba(255,255,255,.1),0 0 8px rgba(255,110,199,.25)} 50%{box-shadow:inset 0 1px 1px rgba(255,255,255,.1),0 0 20px rgba(255,110,199,.6)} }
+  .dgl-son-btn:hover{ border-color:#ff6ec7 !important; color:#fff !important; }
+  .dgl-son-btn.is-on{ animation:none !important; background:linear-gradient(#6cd4f5,#3aa6cc) !important; color:#04222c !important; border-color:#6cd4f5 !important; box-shadow:0 0 16px rgba(108,212,245,.5) !important; }
   @keyframes crt-roll { 0%{transform:translateY(-100%)} 100%{transform:translateY(100%)} }
   .crt-screen{ position:relative; overflow:hidden; background:#000; }
   .crt-screen video{ width:100%; height:100%; object-fit:cover; display:block; filter:saturate(1.15) contrast(1.08); }
@@ -167,7 +170,7 @@
       <div class="dgl-crt-pin" style="height:4px; border-radius:3px; margin:0 6px 16px; background:linear-gradient(90deg,#ff6ec7,#6cd4f5); box-shadow:0 0 14px rgba(255,110,199,.5);"></div>
       <div class="dgl-crt-inner" style="background:#050505; border-radius:22px; padding:18px; box-shadow:inset 0 0 30px rgba(0,0,0,1),0 0 0 2px rgba(0,0,0,.6);">
         <div class="crt-screen" style="border-radius:52px/34px; box-shadow:inset 0 0 60px rgba(0,0,0,.95),inset 0 0 12px rgba(120,120,140,.25); animation:crt-flicker 5.5s infinite;">
-          <video src="assets/teaser.mp4" poster="assets/gallery/g28.jpg" controls autoplay muted loop playsinline style="aspect-ratio:16/9;"></video>
+          <video id="teaserVideo" onclick="toggleSound()" src="assets/teaser.mp4" poster="assets/gallery/g28.jpg" controls autoplay muted loop playsinline style="aspect-ratio:16/9; cursor:pointer;"></video>
           <div class="crt-scan"></div><div class="crt-roll"></div>
           <div style="position:absolute; inset:0; pointer-events:none; mix-blend-mode:screen; background:linear-gradient(90deg,rgba(255,0,80,.09),transparent 6%,transparent 94%,rgba(0,180,255,.09));"></div>
           <div class="crt-bulge"></div><div class="crt-vig"></div><div class="crt-glare"></div>
@@ -176,13 +179,19 @@
           <div style="position:absolute; bottom:12px; left:16px; font-size:12px; color:#fff; text-shadow:0 0 6px #000; font-family:'Space Mono',monospace;">00:90:24:12</div>
         </div>
       </div>
-      <div class="dgl-crt-footer" style="display:flex; justify-content:space-between; align-items:center; margin-top:16px; padding:0 8px; gap:10px;">
+      <div class="dgl-crt-footer" style="display:flex; justify-content:space-between; align-items:center; margin-top:16px; padding:0 8px; gap:12px;">
         <span class="dgl-crt-led" style="display:none; width:8px; height:8px; border-radius:50%; background:#7dff9a; box-shadow:0 0 8px #7dff9a; flex:0 0 auto;"></span>
         <div style="font-family:'Anton',sans-serif; font-size:19px; letter-spacing:1px; color:#ff6ec7; text-shadow:0 0 12px rgba(255,110,199,.5);">DÉGLINGA-VISION <span style="color:#6cd4f5;">90</span></div>
+        <div style="display:flex; gap:14px; align-items:center;">
+        <div class="dgl-son-btn" onclick="toggleSound()" role="button" tabindex="0" style="display:flex; align-items:center; gap:8px; padding:10px 17px; border-radius:11px; background:linear-gradient(#2a2a31,#17171c); border:1px solid rgba(255,110,199,.45); color:#ff8fd6; font-family:'Archivo Black',sans-serif; font-size:12px; letter-spacing:1px; cursor:pointer; box-shadow:inset 0 1px 1px rgba(255,255,255,.1),0 0 14px rgba(255,110,199,.35); animation:dgl-son-glow 1.8s infinite;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M4 9v6h4l5 4V5L8 9H4z"></path><path d="M16 8.5a5 5 0 0 1 0 7" fill="none" stroke="currentColor" stroke-width="2"></path></svg>
+          <span id="soundLabel">SON</span>
+        </div>
         <div class="dgl-crt-knobs" style="display:flex; gap:16px; align-items:center;">
           <div style="width:34px; height:34px; border-radius:50%; background:radial-gradient(circle at 34% 28%,#5a5a64,#191920); box-shadow:0 3px 6px rgba(0,0,0,.6),inset 0 0 5px rgba(0,0,0,.6); position:relative;"><div style="position:absolute; top:4px; left:50%; width:2px; height:11px; background:#cfcfe0; transform:translateX(-50%); border-radius:2px;"></div></div>
           <div style="width:34px; height:34px; border-radius:50%; background:radial-gradient(circle at 34% 28%,#5a5a64,#191920); box-shadow:0 3px 6px rgba(0,0,0,.6),inset 0 0 5px rgba(0,0,0,.6); position:relative;"><div style="position:absolute; top:4px; left:50%; width:2px; height:11px; background:#cfcfe0; transform:translateX(-50%) rotate(38deg); transform-origin:bottom; border-radius:2px;"></div></div>
           <div style="width:10px; height:10px; border-radius:50%; background:#7dff9a; box-shadow:0 0 10px rgba(125,255,154,.8);"></div>
+        </div>
         </div>
       </div>
     </div>
@@ -409,6 +418,17 @@
   // Lightbox
   function openLightbox(src){ document.getElementById('lightboxImg').src = src; document.getElementById('lightbox').style.display = 'flex'; }
   function closeLightbox(){ document.getElementById('lightbox').style.display = 'none'; }
+
+  // CRT sound on/off (video starts muted; click video or SON button to enable)
+  function toggleSound(){
+    const v = document.getElementById('teaserVideo');
+    if(!v) return;
+    v.muted = !v.muted;
+    if(!v.muted){ v.volume = 1; const p = v.play(); if(p && p.catch) p.catch(()=>{}); }
+    const on = !v.muted;
+    document.getElementById('soundLabel').textContent = on ? 'COUPER' : 'SON';
+    document.querySelector('.dgl-son-btn').classList.toggle('is-on', on);
+  }
 
   // Keyboard
   document.addEventListener('keydown', e => {
