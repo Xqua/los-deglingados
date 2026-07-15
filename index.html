@@ -20,18 +20,18 @@
 <meta property="og:url" content="https://xqua.github.io/los-deglingados/">
 <meta property="og:title" content="Los Déglingados — Le Grand Bal des Années 90">
 <meta property="og:description" content="Orchestre de bal populaire de Montpellier — Le Grand Bal des années 90 : 7 musiciens, 3h+ de live et un DJ set jusqu'au bout de la nuit. Bookez le groupe qui s'amuse plus que vous !">
-<meta property="og:image" content="https://xqua.github.io/los-deglingados/assets/gallery/g23.jpg">
+<meta property="og:image" content="https://xqua.github.io/los-deglingados/assets/og-card.jpg">
 <meta property="og:image:type" content="image/jpeg">
-<meta property="og:image:width" content="1400">
-<meta property="og:image:height" content="880">
-<meta property="og:image:alt" content="Los Déglingados sur scène — Le Grand Bal des années 90">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Los Déglingados — Le Grand Bal des années 90">
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Los Déglingados — Le Grand Bal des Années 90">
 <meta name="twitter:description" content="Orchestre de bal populaire de Montpellier. 7 musiciens, 3h+ de live, DJ set. Le groupe qui s'amuse plus que vous !">
-<meta name="twitter:image" content="https://xqua.github.io/los-deglingados/assets/gallery/g23.jpg">
-<meta name="twitter:image:alt" content="Los Déglingados sur scène">
+<meta name="twitter:image" content="https://xqua.github.io/los-deglingados/assets/og-card.jpg">
+<meta name="twitter:image:alt" content="Los Déglingados — Le Grand Bal des années 90">
 
 <!-- Structured data -->
 <script type="application/ld+json">
@@ -110,6 +110,12 @@
     .dgl-stats{grid-template-columns:repeat(2,1fr) !important;}
     .dgl-modal{grid-template-columns:1fr !important; max-height:92vh !important;}
     .dgl-modalimg img{height:auto !important; max-height:44vh !important; object-fit:contain !important;}
+    .dgl-crt-body{ padding:10px !important; border-radius:16px !important; box-shadow:0 22px 44px rgba(0,0,0,.55),inset 0 1px 2px rgba(255,255,255,.1) !important; }
+    .dgl-crt-pin{ display:none !important; }
+    .dgl-crt-inner{ padding:0 !important; border-radius:16px !important; box-shadow:none !important; }
+    .dgl-crt-footer{ justify-content:center !important; padding:0 !important; }
+    .dgl-crt-knobs{ display:none !important; }
+    .dgl-crt-led{ display:block !important; }
   }
   @media (max-width:520px){
     .dgl-nav{padding:12px 16px !important;}
@@ -157,9 +163,9 @@
 
   <!-- TEASER VIDEO — CRT console -->
   <div style="position:relative; z-index:10; max-width:900px; margin:36px auto 0; padding:0 24px;">
-    <div style="position:relative; background:linear-gradient(157deg,#42424b 0%,#26262d 42%,#131318 100%); border-radius:22px; padding:22px 24px 20px; box-shadow:0 34px 70px rgba(0,0,0,.6),inset 0 2px 2px rgba(255,255,255,.12),inset 0 -3px 8px rgba(0,0,0,.6); border:1px solid rgba(255,110,199,.18);">
-      <div style="height:4px; border-radius:3px; margin:0 6px 16px; background:linear-gradient(90deg,#ff6ec7,#6cd4f5); box-shadow:0 0 14px rgba(255,110,199,.5);"></div>
-      <div style="background:#050505; border-radius:22px; padding:18px; box-shadow:inset 0 0 30px rgba(0,0,0,1),0 0 0 2px rgba(0,0,0,.6);">
+    <div class="dgl-crt-body" style="position:relative; background:linear-gradient(157deg,#42424b 0%,#26262d 42%,#131318 100%); border-radius:22px; padding:22px 24px 20px; box-shadow:0 34px 70px rgba(0,0,0,.6),inset 0 2px 2px rgba(255,255,255,.12),inset 0 -3px 8px rgba(0,0,0,.6); border:1px solid rgba(255,110,199,.18);">
+      <div class="dgl-crt-pin" style="height:4px; border-radius:3px; margin:0 6px 16px; background:linear-gradient(90deg,#ff6ec7,#6cd4f5); box-shadow:0 0 14px rgba(255,110,199,.5);"></div>
+      <div class="dgl-crt-inner" style="background:#050505; border-radius:22px; padding:18px; box-shadow:inset 0 0 30px rgba(0,0,0,1),0 0 0 2px rgba(0,0,0,.6);">
         <div class="crt-screen" style="border-radius:52px/34px; box-shadow:inset 0 0 60px rgba(0,0,0,.95),inset 0 0 12px rgba(120,120,140,.25); animation:crt-flicker 5.5s infinite;">
           <video src="assets/teaser.mp4" poster="assets/gallery/g28.jpg" controls autoplay muted loop playsinline style="aspect-ratio:16/9;"></video>
           <div class="crt-scan"></div><div class="crt-roll"></div>
@@ -170,9 +176,10 @@
           <div style="position:absolute; bottom:12px; left:16px; font-size:12px; color:#fff; text-shadow:0 0 6px #000; font-family:'Space Mono',monospace;">00:90:24:12</div>
         </div>
       </div>
-      <div style="display:flex; justify-content:space-between; align-items:center; margin-top:16px; padding:0 8px;">
+      <div class="dgl-crt-footer" style="display:flex; justify-content:space-between; align-items:center; margin-top:16px; padding:0 8px; gap:10px;">
+        <span class="dgl-crt-led" style="display:none; width:8px; height:8px; border-radius:50%; background:#7dff9a; box-shadow:0 0 8px #7dff9a; flex:0 0 auto;"></span>
         <div style="font-family:'Anton',sans-serif; font-size:19px; letter-spacing:1px; color:#ff6ec7; text-shadow:0 0 12px rgba(255,110,199,.5);">DÉGLINGA-VISION <span style="color:#6cd4f5;">90</span></div>
-        <div style="display:flex; gap:16px; align-items:center;">
+        <div class="dgl-crt-knobs" style="display:flex; gap:16px; align-items:center;">
           <div style="width:34px; height:34px; border-radius:50%; background:radial-gradient(circle at 34% 28%,#5a5a64,#191920); box-shadow:0 3px 6px rgba(0,0,0,.6),inset 0 0 5px rgba(0,0,0,.6); position:relative;"><div style="position:absolute; top:4px; left:50%; width:2px; height:11px; background:#cfcfe0; transform:translateX(-50%); border-radius:2px;"></div></div>
           <div style="width:34px; height:34px; border-radius:50%; background:radial-gradient(circle at 34% 28%,#5a5a64,#191920); box-shadow:0 3px 6px rgba(0,0,0,.6),inset 0 0 5px rgba(0,0,0,.6); position:relative;"><div style="position:absolute; top:4px; left:50%; width:2px; height:11px; background:#cfcfe0; transform:translateX(-50%) rotate(38deg); transform-origin:bottom; border-radius:2px;"></div></div>
           <div style="width:10px; height:10px; border-radius:50%; background:#7dff9a; box-shadow:0 0 10px rgba(125,255,154,.8);"></div>
